@@ -1,0 +1,29 @@
+table,
+th,
+tr,
+td {
+  border: 1px solid black
+}
+
+th {
+  padding: 5px;
+}
+
+#wordInput {
+  margin: 20px;
+}
+
+#atlantaDiv {
+  font-weight: bold;
+  color: red;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.description {
+  text-align: center;
+}

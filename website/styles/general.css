@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "arvo";
+  src: url("/website/fonts/Arvo-Regular.ttf");
+}
+
+body {
+  background-color: aqua;
+}
+
+body,
+button {
+  font-family: "arvo";
+}

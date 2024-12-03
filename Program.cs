@@ -2,6 +2,8 @@
 {
   static void Main()
   {
+    string[] words = [];
+
     int port = 5000;
 
     var server = new Server(port);
@@ -30,10 +32,34 @@
       {
         try
         {
-          /*──────────────────────────────────╮
-          │ Handle your custome requests here │
-          ╰──────────────────────────────────*/
-          response.SetStatusCode(405);
+          if (request.Path == "addWord")
+          {
+            string word = request.GetBody<string>();
+
+            bool hasWord = false;
+
+            for (int i = 0; i < words.Length; i++)
+            {
+              if (words[i] == word)
+              {
+                hasWord = true;
+              }
+            }
+
+            if (!hasWord)
+            {
+              words = [.. words, word];
+            }
+          }
+          if (request.Path == "getWords")
+          {
+            response.Send(words);
+          }
+          else
+          {
+            Console.WriteLine("405");
+            response.SetStatusCode(405);
+          }
         }
         catch (Exception exception)
         {
